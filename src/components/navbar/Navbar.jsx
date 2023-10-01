@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 import styles from "./page.module.css";
 import { signOut, useSession } from "next-auth/react";
+import DarkMode from '../DarkMode/DarkMode';
 
 const links = [
     {
@@ -31,26 +32,27 @@ const links = [
       title: "Contact",
       url: "/contact",
     },
-    {
-      id: 6,
-      title: "Dashboard",
-      url: "/dashboard",
-    },
+    // {
+    //   id: 6,
+    //   title: "Dashboard",
+    //   url: "/dashboard",
+    // },
   ];
 
 
 const Navbar = () => {
 
   //const session = useSession()
-
+//
   return (
     <nav className={styles.container}>
         <Link href='/' className={styles.logo}>App</Link>
           <div className={styles.links}>
+          <DarkMode/>
             {links.map((link) => (
                 <Link key={link.id} href={link.url}>{link.title}</Link>
             ))}
-            <button className={styles.logout}>Logout</button>
+            {/* <button className={styles.logout}>Logout</button> */}
           </div>     
     </nav>
   )
